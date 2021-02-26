@@ -6,9 +6,9 @@ RSpec.describe "search index" do
 
     visit '/search'
 
-    expect(page).to have_content('name:')
-    expect(page).to have_content('address:')
-    expect(page).to have_content('fuel type:')
-    expect(page).to have_content('access times:')
+    expect(page).to have_content('name: Seventeenth Street Plaza')
+    expect(page).to have_content('address: 1225 17th St.')
+    expect(page).to have_content('fuel type: ELEC')
+    expect(page).to have_content('hours of operation: N/A')
   end
 end
