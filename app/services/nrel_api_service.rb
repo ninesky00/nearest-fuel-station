@@ -1,14 +1,17 @@
 class NrelApiService
   class << self
-    def nearest(path)
-      response = connection.get(path)
+    def nearest(path, params = {})
+      response = connection.get(path) do |request|
+        request.params = params
+        request.params[:api_key] = ENV['NREL_API_KEY']
+      end
       parse(response)
     end
 
     private 
 
     def connection
-      Faraday.new('https://developer.nrel.gov/api/alt-fuel-stations/v1/')
+      Faraday.new('https://developer.nrel.gov')
     end
 
     def parse(data)
