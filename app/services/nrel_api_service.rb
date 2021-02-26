@@ -1,6 +1,6 @@
 class NrelApiService
   class << self
-    def nearest(path, params = {})
+    def nearby(path, params = {})
       response = connection.get(path) do |request|
         request.params = params
         request.params[:api_key] = ENV['NREL_API_KEY']

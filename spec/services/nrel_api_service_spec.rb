@@ -6,7 +6,7 @@ RSpec.describe NrelApiService do
       address = '1331 17th St LL100, Denver, CO 80202'
       path = 'api/alt-fuel-stations/v1/nearest.json'
       params = {location: address}
-      service = NrelApiService.nearest(path, params)
+      service = NrelApiService.nearby(path, params)
       nearest_station = service[:fuel_stations].first
       expect(nearest_station[:station_name]).to eq("Seventeenth Street Plaza")
       expect(nearest_station[:street_address]).to eq("1225 17th St.")
